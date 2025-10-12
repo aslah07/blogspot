@@ -29,7 +29,7 @@ export default function Home() {
 
       <div className="block md:flex gap-3 md:gap-6">
         <LatestPost className="md:mr-6" />
-        <PinnedPost className="md:max-w-[300px]" />
+        <PinnedPost className="" />
       </div>
 
       <div className="block md:hidden">

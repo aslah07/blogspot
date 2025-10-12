@@ -1,22 +1,8 @@
 "use client";
-import { useEffect, useState } from "react";
-import axios from "axios";
 import Link from "next/link";
 import Image from "next/image";
 
-// interface Post {
-//   body: string;
-//   id: number;
-//   reactions: { likes: number; dislikes: number };
-//   tags: string[];
-//   title: string;
-//   userId: number;
-//   views: number;
-// }
-
 export default function BlogCard() {
-  // const [content, setContent] = useState<Post[]>([]);
-
   function truncateChars(
     text: string | null | undefined,
     maxChars = 100,
@@ -33,7 +19,7 @@ export default function BlogCard() {
     className,
   }: {
     text: string | null | undefined;
-    chars: number; // if provided, use character-based truncation
+    chars: number;
     className?: string;
   }) {
     return <p className={className}>{truncateChars(text, chars)}</p>;

@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 .section_heading{
-  @apply text-3xl font-bold mb-6 py-5 px-4 bg-amber-100;
+  @apply text-3xl font-bold py-5 px-4;
 }
 
 .blog_section{

@@ -5,6 +5,8 @@ import { Post } from "@/lib/types";
 import { GetAllData } from "@/lib/getData";
 import { useEffect, useState } from "react";
 import PaginationButton from "@/app/components/PaginationButton";
+import BlogCard from "@/app/components/PageComponents/Blog/BlogCard";
+import "@/app/components/PageComponents/Blog/Blog.css";
 
 export default function Page() {
   const [totalPage, setTotalPage] = useState(0);
@@ -15,28 +17,48 @@ export default function Page() {
 
   useEffect(() => {
     async function fetchData() {
-      const current_page = (current_page_params - 1) * 10;
-      const data = await GetAllData(current_page, 10);
+      const current_page = (current_page_params - 1) * 12;
+      const data = await GetAllData(current_page, 12);
       const post = data.posts;
-      console.log(data.totalPage);
+      console.log("Fetched Post Data:", post);
       setContent(post);
       setTotalPage(data.totalPage);
-
     }
     fetchData();
   }, [current_page_params]);
 
   return (
     <div>
-      <div>Page number: {current_page_params}</div>
       <div>
-        {content.map((post) => (
-          <div key={post.id}>
-            <h2>{post.title}</h2>
-          </div>
-        ))}
+        <h1 className="section_heading">
+          will add path for bread crumbs later
+        </h1>
       </div>
-      <PaginationButton totalPage={totalPage} />
+      <div>
+        <div className="block md:flex gap-3 md:gap-6">
+          <div className="md:mr-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {[...Array(12)].map((_, index) => (
+                <BlogCard key={index} />
+              ))}
+            </div>
+          </div>
+          <div className="md:max-w-[300px] ">
+            <h1 className="section_heading">Trending Posts</h1>
+            <div className="grid grid-cols-1 gap-6">
+              {[...Array(3)].map((_, index) => (
+                <BlogCard key={index} />
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="flex justify-center my-8">
+        <PaginationButton
+          totalPage={totalPage}
+          current_page={current_page_params}
+        />
+      </div>
     </div>
   );
 }
