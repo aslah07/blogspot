@@ -17,6 +17,10 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Blog Spot",
   description: "Learn, Read, Sleep",
+  // logo
+  icons: {
+    icon: "/favicon.svg",
+  },
 };
 
 export default function RootLayout({
