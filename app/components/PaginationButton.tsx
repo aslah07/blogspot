@@ -7,29 +7,6 @@ export default function PaginationButton({
   totalPage: number;
   current_page: number;
 }) {
-  const sample_page_number = [
-    "1",
-    "2",
-    "3",
-    "4",
-    "5",
-    "6",
-    "7",
-    "8",
-    "9",
-    "10",
-    "11",
-    "12",
-    "13",
-    "14",
-    "15",
-    "16",
-    "17",
-    "18",
-    "19",
-    "20",
-  ];
-
   const pageButtons = (page: number) => {
     const buttons = [];
     const range = 5;
@@ -52,9 +29,5 @@ export default function PaginationButton({
     return buttons;
   };
 
-  return (
-    <div>
-      {pageButtons(totalPage ?? 0)}
-    </div>
-  );
+  return <div>{pageButtons(totalPage ?? 0)}</div>;
 }

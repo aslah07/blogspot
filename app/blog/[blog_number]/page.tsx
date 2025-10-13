@@ -9,7 +9,7 @@ import "./blogpage.css";
 export default function page() {
   const { id, page } = useParams();
   return (
-    <div className="lg:flex px-4 lg:px-0">
+    <div className="flex px-4 lg:px-0">
       <div className="flex-1">
         {/* Image, Author, tag Section */}
         <div>

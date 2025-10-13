@@ -4,6 +4,7 @@ import { GetAllData, GetsortData } from "@/lib/getData";
 import LatestPost from "./components/PageComponents/Blog/LatestPost";
 import PinnedPost from "./components/PageComponents/Blog/PinnedPost";
 import TrendingPost from "./components/PageComponents/Blog/TrendingPost";
+import PreNxtButton from "./components/PreNxtButton";
 
 export default function Home() {
   useEffect(() => {
@@ -27,18 +28,16 @@ export default function Home() {
         <TrendingPost />
       </div>
 
-      <div className="block md:flex gap-3 md:gap-6">
-        <LatestPost className="md:mr-6" />
-        <PinnedPost className="" />
+      <div className="lg:flex px-4">
+        <LatestPost className="flex-1" />
+        <PinnedPost className="lg:max-w-[320px] px-4 lg:pl-6 pr-0" />
       </div>
 
       <div className="block md:hidden">
         <TrendingPost />
       </div>
 
-      <div>
-        {/* <PageChangeButton /> */}
-      </div>
+      <PreNxtButton totalPage={21} current_page={1} />
     </div>
   );
 }
