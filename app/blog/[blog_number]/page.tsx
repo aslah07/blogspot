@@ -5,12 +5,15 @@ import Image from "next/image";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import "./blogpage.css";
+import Breadcrumb from "@/app/components/features/BreadCrumbs";
 
 export default function page() {
   const { id, page } = useParams();
   return (
-    <div className="flex px-4 lg:px-0">
+    <div className="lg:flex px-4 lg:px-0">
+      {/* Blog Content Section */}
       <div className="flex-1">
+        <Breadcrumb />
         {/* Image, Author, tag Section */}
         <div>
           <div className="relative h-3/6 mx-auto my-8">
@@ -146,7 +149,7 @@ export default function page() {
             </div>
 
             {/* Quote Box */}
-            <div className="w-2/3 mx-auto content-space">
+            <div className="md:w-2/3 mx-auto content-space">
               <h2 className="text-4xl font-bold mb-4">Quote Box</h2>
               <blockquote className="border-l-4 border-gray-300 pl-4 italic text-gray-600">
                 "You can talk with someone for years, everyday, and still, it
@@ -159,7 +162,7 @@ export default function page() {
             </div>
 
             {/* Code Box */}
-            
+
             {/*  */}
           </div>
         </div>
