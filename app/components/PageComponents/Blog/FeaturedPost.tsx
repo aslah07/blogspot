@@ -1,20 +1,19 @@
-import React from "react";
-import BlogCard from "./BlogCard";
+import BoxBlogCard from "./BoxBlogCard";
 
-export default function PinnedPost({
+export default function FeaturedPost({
   className,
-  amount,
+  blogCardNumber,
 }: {
   className?: string;
-  amount: number | 3;
+  blogCardNumber: number | 3;
 }) {
   return (
     <div className={`${className}`}>
       <div>
         <h1 className="section_heading">Featured</h1>
         <div className="grid lg:grid-cols-1 gap-6">
-          {[...Array(amount)].map((_, index) => (
-            <BlogCard key={index} />
+          {[...Array(blogCardNumber)].map((_, index) => (
+            <BoxBlogCard key={index} />
           ))}
         </div>
       </div>

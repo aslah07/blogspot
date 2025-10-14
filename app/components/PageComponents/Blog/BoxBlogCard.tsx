@@ -2,7 +2,7 @@
 import Link from "next/link";
 import Image from "next/image";
 
-export default function TestBlogCard({ className }: { className?: string }) {
+export default function BoxBlogCard() {
   function truncateChars(
     text: string | null | undefined,
     maxChars = 100,
@@ -27,17 +27,15 @@ export default function TestBlogCard({ className }: { className?: string }) {
   return (
     <div className="border-2 border-[#00000012] hover:shadow-lg transition-shadow duration-300">
       <Link href={"/blog/1"} className="block overflow-hidden">
-        <div className="flex items-center h-full flex-row">
+        <div className="">
           {/* Image Section */}
-          <div className="h-48 w-full md:max-w-[320px] relative">
+          <div className="">
             <Image
               src="https://picsum.photos/500/300"
               alt="Blog Post Image"
-              // width={400}
-              // height={300}
-              // className=""
-              fill
-              className="object-cover"
+              width={400}
+              height={300}
+              className="w-full h-auto"
             />
           </div>
 

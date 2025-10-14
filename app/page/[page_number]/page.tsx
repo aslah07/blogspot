@@ -4,13 +4,11 @@ import { useParams } from "next/navigation";
 import { Post } from "@/lib/types";
 import { GetAllData } from "@/lib/getData";
 import { useEffect, useState } from "react";
-import PaginationButton from "@/app/components/PaginationButton";
-import BlogCard from "@/app/components/PageComponents/Blog/BlogCard";
 import "@/app/components/PageComponents/Blog/Blog.css";
 import PreNxtButton from "@/app/components/PreNxtButton";
-import TrendingPost from "@/app/components/PageComponents/Blog/TrendingPost";
 import LatestPost from "@/app/components/PageComponents/Blog/LatestPost";
-import PinnedPost from "@/app/components/PageComponents/Blog/PinnedPost";
+import Breadcrumb from "@/app/components/features/BreadCrumbs";
+import FeaturedPost from "@/app/components/PageComponents/Blog/FeaturedPost";
 
 export default function Page() {
   const [totalPage, setTotalPage] = useState(0);
@@ -33,17 +31,14 @@ export default function Page() {
 
   return (
     <div className="blog-container">
-      <div className="hidden md:block">
-        <TrendingPost />
-      </div>
+      <Breadcrumb />
 
       <div className="lg:flex">
         <LatestPost className="flex-1" />
-        <PinnedPost className="lg:max-w-[320px] lg:pl-6" />
-      </div>
-
-      <div className="block md:hidden">
-        <TrendingPost />
+        <FeaturedPost
+          className="hidden lg:block lg:max-w-[320px] lg:pl-6"
+          blogCardNumber={3}
+        />
       </div>
 
       <div>

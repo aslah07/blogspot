@@ -2,7 +2,7 @@
 import Link from "next/link";
 import Image from "next/image";
 
-export default function FlatBlogCard({className}: {className?: string}) {
+export default function FlatBlogCard({ className }: { className?: string }) {
   function truncateChars(
     text: string | null | undefined,
     maxChars = 100,
@@ -27,25 +27,39 @@ export default function FlatBlogCard({className}: {className?: string}) {
   return (
     <div className="border-2 border-[#00000012] hover:shadow-lg transition-shadow duration-300">
       <Link href={"/blog/1"} className="block overflow-hidden">
-        <div className="flex flex-col md:flex-row">
+        <div className="flex items-center h-full flex-row">
           {/* Image Section */}
-          <div className="">
+          <div className="h-48 w-full md:max-w-[320px] relative">
             <Image
               src="https://picsum.photos/500/300"
               alt="Blog Post Image"
-              width={400}
-              height={300}
-              className="max-h-full max-w-[320px] object-cover"
+              // width={400}
+              // height={300}
+              // className=""
+              fill
+              className="object-cover"
             />
           </div>
 
           {/* Content Section */}
-          <div className="p-4">
-            <h2 className="text-2xl font-bold mb-2">Blog Post Title</h2>
+          <div className="my-auto p-4 space-y-2">
+            <h2 className="text-2xl font-bold">Blog Post Title</h2>
             <CardParaLimit
               chars={80}
+              className="text-sm"
               text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
             />
+            <div className="space-y-1">
+              <p className="text-sm text-gray-700">
+                <span className="text-red-600">//</span> Written by:{" "}
+                <span className="text-black font-semibold">Ash</span>
+              </p>
+
+              <p className="text-sm text-gray-700">
+                Reading Time:{" "}
+                <span className="text-black font-semibold">2 min</span>
+              </p>
+            </div>
           </div>
         </div>
       </Link>

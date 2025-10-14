@@ -1,7 +1,5 @@
 import React from "react";
 import FlatBlogCard from "./FlatBlogCard";
-import TestBlogCard from "./TestBlogCard";
-// import BlogCard from "./BlogCard";
 
 export default function LatestPost({ className }: { className?: string }) {
   return (
@@ -10,14 +8,8 @@ export default function LatestPost({ className }: { className?: string }) {
       <div className="grid grid-cols-1 gap-5">
         {/* how to loop blogcard 10 times */}
         {[...Array(10)].map((_, index) => (
-          <TestBlogCard key={index} className="" />
+          <FlatBlogCard key={index} className="" />
         ))}
-        {/* {[...Array(10)].map((_, index) => (
-          <TestBlogCard key={index} className="block md:hidden" />
-        ))}
-        {[...Array(10)].map((_, index) => (
-          <FlatBlogCard key={index} className="hidden md:block" />
-        ))} */}
       </div>
     </div>
   );

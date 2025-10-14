@@ -56,9 +56,9 @@ export default function page() {
         {/*  */}
         {/* Blog Content Section */}
         <div className="">
-          <div className="space-y-10 md:space-y-16">
-            <h1 className="text-5xl font-bold my-6">Blog Post Title</h1>
-            <div className=" space-y-8">
+          <div>
+            <h1 className="text-5xl font-bold mt-6">Blog Post Title</h1>
+            <div className="content-space space-y-8">
               <p>
                 Lorem Ipsum is simply dummy text of the printing and typesetting
                 industry. Lorem Ipsum has been the industry's standard dummy
@@ -87,7 +87,7 @@ export default function page() {
               </p>
             </div>
             {/* Info box */}
-            <div className="space-y-4  w-full md:w-3/4 mx-auto">
+            <div className="space-y-4 content-space w-full md:w-3/4 mx-auto">
               <h1 className="text-4xl font-bold">Alert Boxes</h1>
               <AlertBox
                 type="warning"
@@ -111,7 +111,7 @@ export default function page() {
               />
             </div>
             {/* ordered/unordered list */}
-            <div className=" w-full md:w-3/4 mx-auto space-y-8">
+            <div className="content-space w-full md:w-3/4 mx-auto space-y-8">
               {/* Create list box with design */}
               {/* Unordered List */}
               <div>
@@ -133,7 +133,7 @@ export default function page() {
               </div>
             </div>
 
-            <div className="">
+            <div className="content-space">
               <div className="relative max-w-5/6 w-full mx-auto my-8">
                 <Image
                   src="https://picsum.photos/1920/1080"
@@ -149,7 +149,7 @@ export default function page() {
             </div>
 
             {/* Quote Box */}
-            <div className="md:w-2/3 mx-auto ">
+            <div className="md:w-2/3 mx-auto content-space">
               <h2 className="text-4xl font-bold mb-4">Quote Box</h2>
               <blockquote className="border-l-4 border-gray-300 pl-4 italic text-gray-600">
                 "You can talk with someone for years, everyday, and still, it
