@@ -6,6 +6,7 @@ import Link from "next/link";
 import { useParams } from "next/navigation";
 import "./blogpage.css";
 import Breadcrumb from "@/app/components/features/BreadCrumbs";
+import BlogCardWithoutImage from "@/app/components/PageComponents/Blog/BlogCardWithoutImage";
 
 export default function page() {
   const { id, page } = useParams();
@@ -171,9 +172,9 @@ export default function page() {
       </div>
 
       {/* Post Section */}
-      <div className="min-w-[360px] px-4 lg:pl-6 pr-0 py-10">
+      <div className="max-w-[360px] px-4 lg:pl-6 pr-0 py-10 space-y-10 lg:space-y-16">
         {/*  */}
-        <div className="mb-10">
+        <div className="">
           {/* h1 need 52 font size */}
           <h1 className="text-4xl font-semibold">Latest Post</h1>
           {[1, 2, 3, 4].map((item) => (
@@ -188,8 +189,11 @@ export default function page() {
             </div>
           ))}
         </div>
+        <div>
+          <BlogCardWithoutImage type="Related Post" />
+        </div>
         {/*  */}
-        <div className="mb-10">
+        <div className="">
           {/* h1 need 52 font size */}
           <h1 className="text-4xl font-semibold">Related Post</h1>
           {[1, 2, 3, 4].map((item) => (
