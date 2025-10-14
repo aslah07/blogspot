@@ -5,7 +5,7 @@ export default function Navbar() {
     <nav className="px-3 md:px-6">
       <div className="py-6 flex justify-between items-center">
         <div>
-          <Link href="/" className="text-3xl md:text-5xl font-bold">
+          <Link href="/" className="text-3xl md:text-5xl font-bold hover:opacity-70 transition-all">
             BLOGSPOT
           </Link>
         </div>

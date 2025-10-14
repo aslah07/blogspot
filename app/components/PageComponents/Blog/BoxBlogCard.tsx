@@ -4,10 +4,9 @@ import Image from "next/image";
 import CharsLimit from "../../features/CharsLimit";
 
 export default function BoxBlogCard() {
- 
   return (
     <div className="border-2 border-[#00000012] hover:shadow-lg transition-shadow duration-300">
-      <Link href={"/blog/1"} className="block overflow-hidden">
+      <Link href={`/blog/1/`} className="block overflow-hidden">
         <div className="">
           {/* Image Section */}
           <div className="">

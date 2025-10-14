@@ -14,7 +14,6 @@ export default function Breadcrumb() {
       const label = decodeURIComponent(segment)
         .replace(/-/g, " ")
         .replace(/\b\w/g, (char) => char.toUpperCase());
-
       return { href, label };
     });
 
