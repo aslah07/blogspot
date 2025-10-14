@@ -17,31 +17,6 @@ body{
   min-height: 100vh;
 }
 
-
-.old-button {
-    font-family: "Pixelify Sans", system-ui;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-    background: none;
-    border: 2px solid var(--brown);
-    padding: 8px 20px;
-    box-shadow: 4px 4px var(--brown);
-    transition-property: transform, box-shadow, outline-offset;
-    transition: 100ms ease-in;
+.blog-container{
+  @apply px-4;
 }
-
-.old-button:hover {
-    cursor: pointer;
-}
-
-.old-button:focus-visible {
-    outline-offset: 12px;
-    outline: 2px dotted var(--brown);
-}
-
-.old-button:active {
-    box-shadow: 2px 2px var(--brown);
-    transform: scale(0.99);
-}
-
