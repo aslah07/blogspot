@@ -174,40 +174,8 @@ export default function page() {
       {/* Post Section */}
       <div className="max-w-[360px] px-4 lg:pl-6 pr-0 py-10 space-y-10 lg:space-y-16">
         {/*  */}
-        <div className="">
-          {/* h1 need 52 font size */}
-          <h1 className="text-4xl font-semibold">Latest Post</h1>
-          {[1, 2, 3, 4].map((item) => (
-            <div key={item} className="flex items-center gap-4 my-4">
-              <div className="text-5xl text-gray-400">{item}</div>
-              <div>
-                <h3 className="text-2xl font-medium ">Latest Post Title</h3>
-                <p className="text-sm">
-                  Latest post description goes here.....
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
-        <div>
-          <BlogCardWithoutImage type="Related Post" />
-        </div>
-        {/*  */}
-        <div className="">
-          {/* h1 need 52 font size */}
-          <h1 className="text-4xl font-semibold">Related Post</h1>
-          {[1, 2, 3, 4].map((item) => (
-            <div key={item} className="flex items-center gap-4 my-4">
-              <div className="text-5xl text-gray-400">{item}</div>
-              <div>
-                <h3 className="text-2xl font-medium ">Related Post Title</h3>
-                <p className="text-sm">
-                  Related post description goes here.....
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
+        <BlogCardWithoutImage type="Related" />
+        <BlogCardWithoutImage type="Most Viewed" />
         {/*  */}
       </div>
     </div>
