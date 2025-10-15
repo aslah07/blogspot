@@ -1,10 +1,10 @@
 "use client";
 import { useEffect, useState } from "react";
 import { GetAllData, GetsortData } from "@/lib/getData";
-import LatestPost from "./components/PageComponents/Blog/LatestPost";
-import FeaturedPost from "./components/PageComponents/Blog/FeaturedPost";
-import TrendingPost from "./components/PageComponents/Blog/TrendingPost";
-import PreNxtButton from "./components/PreNxtButton";
+import LatestPost from "@/components/PageComponents/Blog/LatestPost";
+import FeaturedPost from "@/components/PageComponents/Blog/FeaturedPost";
+import TrendingPost from "@/components/PageComponents/Blog/TrendingPost";
+import PreNxtButton from "@/components/PreNxtButton";
 import { useParams } from "next/navigation";
 import { Post } from "@/lib/types";
 
@@ -29,6 +29,7 @@ export default function Home() {
   return (
     <div className="blog-container">
       <div>
+        
         <div className="hidden md:block">
           <TrendingPost type="boxed"/>
         </div>

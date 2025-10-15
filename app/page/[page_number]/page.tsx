@@ -5,10 +5,10 @@ import { Post } from "@/lib/types";
 import { GetAllData } from "@/lib/getData";
 import { useEffect, useState } from "react";
 import "@/app/components/PageComponents/Blog/Blog.css";
-import PreNxtButton from "@/app/components/PreNxtButton";
-import LatestPost from "@/app/components/PageComponents/Blog/LatestPost";
-import Breadcrumb from "@/app/components/features/BreadCrumbs";
-import FeaturedPost from "@/app/components/PageComponents/Blog/FeaturedPost";
+import PreNxtButton from "@/components/PreNxtButton";
+import LatestPost from "@/components/PageComponents/Blog/LatestPost";
+import Breadcrumb from "@/components/features/BreadCrumbs";
+import FeaturedPost from "@/components/PageComponents/Blog/FeaturedPost";
 
 export default function Page() {
   const [totalPage, setTotalPage] = useState(0);

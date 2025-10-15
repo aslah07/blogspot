@@ -1,15 +1,21 @@
 // this page is blog post content page
-"use client";
-import AlertBox from "@/app/components/features/AlertBox";
 import Image from "next/image";
 import Link from "next/link";
-import { useParams } from "next/navigation";
+import Breadcrumb from "@/components/features/BreadCrumbs";
+import AlertBox from "@/components/features/AlertBox";
+import BlogCardWithoutImage from "@/components/PageComponents/Blog/BlogCardWithoutImage";
 import "./blogpage.css";
-import Breadcrumb from "@/app/components/features/BreadCrumbs";
-import BlogCardWithoutImage from "@/app/components/PageComponents/Blog/BlogCardWithoutImage";
+import { GetDataById } from "@/lib/getData";
 
-export default function page() {
-  const { id, page } = useParams();
+export default async function Page({
+  params,
+}: {
+  params: { blog_number: string };
+}) {
+  const { blog_number } = await params;
+  const data = await GetDataById(blog_number);
+  console.log("Fetched Blog Post Data:", data);
+
   return (
     <div className="lg:flex px-4 lg:px-0">
       {/* Blog Content Section */}

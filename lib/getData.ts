@@ -13,6 +13,13 @@ export async function GetAllData(pageNumber: number, limit: number) {
     return { posts: data.posts, totalPage: Math.round(data.total / limit) }
 }
 
+export async function GetDataById(id: string) {
+    const response = await fetch(`https://dummyjson.com/posts/${id}`);
+    if (!response.ok) throw new Error("Failed to fetch post by ID");
+    const data: Post = await response.json();
+    return data;
+}
+
 export async function GetsortData(): Promise<SortedPostsResult> {
     try {
         const url = "https://dummyjson.com/posts?limit=260";
