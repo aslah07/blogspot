@@ -6,17 +6,25 @@ export default function TrendingPost({
   className,
   blogCardNumber = 3,
   type,
+  data,
 }: {
   className?: string;
-  blogCardNumber?: number;
+  blogCardNumber?: number | 1;
   type: string;
+  data?: any[];
 }) {
   function typeAction(typeAction: string, amount: number) {
+    // const dataSlice = data?.slice(0, amount);
+    // console.log("Data Slice:", dataSlice);
     if (typeAction === "boxed") {
-      return [...Array(amount)].map((_, index) => <BoxBlogCard key={index} />);
+      return data
+        ?.slice(0, amount)
+        .map((item, index) => <BoxBlogCard key={index} data={item} />);
     }
     if (typeAction === "flat") {
-      return [...Array(amount)].map((_, index) => <FlatBlogCard key={index} />);
+      return data
+        ?.slice(0, amount)
+        .map((item, index) => <FlatBlogCard key={index} data={item} />);
     }
   }
 

@@ -1,40 +1,27 @@
-"use client";
 // this a page for pagination
-import { useParams } from "next/navigation";
-import { Post } from "@/lib/types";
 import { GetAllData } from "@/lib/getData";
-import { useEffect, useState } from "react";
-import "@/app/components/PageComponents/Blog/Blog.css";
-import PreNxtButton from "@/components/PreNxtButton";
 import LatestPost from "@/components/PageComponents/Blog/LatestPost";
 import Breadcrumb from "@/components/features/BreadCrumbs";
 import FeaturedPost from "@/components/PageComponents/Blog/FeaturedPost";
+import PreNxtButton from "@/components/PreNxtButton";
 
-export default function Page() {
-  const [totalPage, setTotalPage] = useState(0);
-  const [content, setContent] = useState<Post[]>([]);
-  const { page_number } = useParams();
-  const current_page_params =
-    page_number !== undefined ? parseFloat(page_number as string) : 0;
-
-  useEffect(() => {
-    async function fetchData() {
-      const current_page = (current_page_params - 1) * 12;
-      const data = await GetAllData(current_page, 12);
-      const post = data.posts;
-      console.log("Fetched Post Data:", post);
-      setContent(post);
-      setTotalPage(data.totalPage);
-    }
-    fetchData();
-  }, [current_page_params]);
+export default async function Page({
+  params,
+}: {
+  params: { page_number: string };
+}) {
+  const { page_number } = await params;
+  const data = await GetAllData(parseInt(page_number), 10);
+  const postData = data.posts;
+  const totalPage = data.totalPage;
+  console.log("Data in Pagination:", data);
 
   return (
     <div className="blog-container">
       <Breadcrumb />
 
       <div className="lg:flex">
-        <LatestPost className="flex-1" />
+        <LatestPost className="flex-1" data={postData} />
         <FeaturedPost
           className="hidden lg:block lg:max-w-[320px] lg:pl-6"
           blogCardNumber={3}
@@ -44,7 +31,7 @@ export default function Page() {
       <div>
         <PreNxtButton
           totalPage={totalPage}
-          current_page={current_page_params}
+          current_page={parseInt(page_number)}
         />
       </div>
     </div>

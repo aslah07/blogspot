@@ -14,7 +14,6 @@ export default async function Page({
 }) {
   const { blog_number } = await params;
   const data = await GetDataById(blog_number);
-  console.log("Fetched Blog Post Data:", data);
 
   return (
     <div className="lg:flex px-4 lg:px-0">
@@ -48,7 +47,7 @@ export default async function Page({
             </div>
             {/* Tags */}
             <div className="flex gap-2">
-              {["Tag-2", "Tag-3", "Tag-4"].map((tag, index) => (
+              {data.tags.map((tag, index) => (
                 <Link
                   key={index}
                   className="inline-block bg-gray-200 text-gray-800 text-xs px-2 py-1 rounded-full mr-2 "
@@ -64,15 +63,10 @@ export default async function Page({
         {/* Blog Content Section */}
         <div className="">
           <div className="space-y-10 md:space-y-16">
-            <h1 className="text-5xl font-bold my-6">Blog Post Title</h1>
+            <h1 className="text-5xl font-bold my-6">{data.title}</h1>
             <div className=" space-y-8">
               <p>
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy
-                text ever since the 1500s, when an unknown printer took a galley
-                of type and scrambled it to make a type specimen book. It has
-                survived not only five centuries, but also the leap into
-                electronic typesetting, remaining essentially unchanged.
+                {data.body}
               </p>
               <p>
                 It was popularised in the 1960s with the release of Letraset

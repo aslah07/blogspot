@@ -7,7 +7,7 @@ interface SortedPostsResult {
 
 // import { error } from "console"
 export async function GetAllData(pageNumber: number, limit: number) {
-    const response = await fetch(`https://dummyjson.com/posts?skip=${pageNumber}&limit=${limit}`)
+    const response = await fetch(`https://dummyjson.com/posts?skip=${pageNumber * limit}&limit=${limit}`)
     if (!response.ok) throw new Error("Failed to fetch from endpoint")
     const data: { posts: Post[]; total: number } = await response.json();
     return { posts: data.posts, totalPage: Math.round(data.total / limit) }
