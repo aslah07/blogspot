@@ -1,5 +1,5 @@
 // this a page for pagination
-import { GetAllData } from "@/lib/getData";
+import { getAllData, getSortedData } from "@/lib/getData";
 import LatestPost from "@/components/PageComponents/Blog/LatestPost";
 import Breadcrumb from "@/components/features/BreadCrumbs";
 import FeaturedPost from "@/components/PageComponents/Blog/FeaturedPost";
@@ -11,10 +11,11 @@ export default async function Page({
   params: { page_number: string };
 }) {
   const { page_number } = await params;
-  const data = await GetAllData(parseInt(page_number), 10);
+  const data = await getAllData(parseInt(page_number), 10);
+  const sortedData = await getSortedData();
   const postData = data.posts;
   const totalPage = data.totalPage;
-  console.log("Data in Pagination:", data);
+  const mostLikedPosts = sortedData.mostLikedPosts;
 
   return (
     <div className="blog-container">
@@ -23,6 +24,7 @@ export default async function Page({
       <div className="lg:flex">
         <LatestPost className="flex-1" data={postData} />
         <FeaturedPost
+          data={mostLikedPosts}
           className="hidden lg:block lg:max-w-[320px] lg:pl-6"
           blogCardNumber={3}
         />

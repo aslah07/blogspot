@@ -11,16 +11,18 @@ export default function FlatBlogCard({
   data?: any;
 }) {
   return (
-    <div className="border-2 border-[#00000012] hover:shadow-lg transition-shadow duration-300">
+    <div className={`${className} border-2 border-[#00000012] hover:shadow-lg transition-shadow duration-300`}>
       <Link href={`/blog/${data.id}`} className="block overflow-hidden">
         <div className="flex items-center h-full flex-row">
           {/* Image Section */}
           <div className="h-48 w-full md:max-w-[320px] relative">
             <Image
-              src="https://picsum.photos/500/300"
+              src={`https://picsum.photos/500/300/?random=${data.id}`}
               alt="Blog Post Image"
-              fill
+              width={400}
+              height={300}
               className="object-cover"
+              unoptimized
             />
           </div>
 

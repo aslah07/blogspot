@@ -5,7 +5,7 @@ import Breadcrumb from "@/components/features/BreadCrumbs";
 import AlertBox from "@/components/features/AlertBox";
 import BlogCardWithoutImage from "@/components/PageComponents/Blog/BlogCardWithoutImage";
 import "./blogpage.css";
-import { GetDataById } from "@/lib/getData";
+import { getDataById } from "@/lib/getData";
 
 export default async function Page({
   params,
@@ -13,7 +13,7 @@ export default async function Page({
   params: { blog_number: string };
 }) {
   const { blog_number } = await params;
-  const data = await GetDataById(blog_number);
+  const data = await getDataById(blog_number);
 
   return (
     <div className="lg:flex px-4 lg:px-0">
@@ -24,10 +24,11 @@ export default async function Page({
         <div>
           <div className="relative h-3/6 mx-auto my-8">
             <Image
-              src="https://picsum.photos/1920/1080"
+              src={`https://picsum.photos/1920/1080/?random=${data.id}`}
               alt="Blog Post Image"
               width={1920}
               height={1080}
+              unoptimized
             />
           </div>
           <div className="flex justify-between items-center">
@@ -65,9 +66,7 @@ export default async function Page({
           <div className="space-y-10 md:space-y-16">
             <h1 className="text-5xl font-bold my-6">{data.title}</h1>
             <div className=" space-y-8">
-              <p>
-                {data.body}
-              </p>
+              <p>{data.body}</p>
               <p>
                 It was popularised in the 1960s with the release of Letraset
                 sheets containing Lorem Ipsum passages, and more recently with

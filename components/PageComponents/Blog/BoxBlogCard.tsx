@@ -9,15 +9,16 @@ export default function BoxBlogCard({ data }: { data?: any }) {
       <Link href={`/blog/${data.id}`} className="block overflow-hidden">
         <div className="">
           {/* Image Section */}
-          {/* <div className="">
+          <div className="">
             <Image
-              src="https://picsum.photos/500/300/?random=3"
+              src={`https://picsum.photos/500/300/?random=${data.id}`}
               alt="Blog Post Image"
               width={400}
               height={300}
               className="w-full h-auto"
+              unoptimized
             />
-          </div> */}
+          </div>
 
           {/* Content Section */}
           <div className="my-auto p-4 space-y-2">

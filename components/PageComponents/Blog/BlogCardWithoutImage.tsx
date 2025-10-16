@@ -1,33 +1,34 @@
+import { getSortedData } from "@/lib/getData";
 import CharsLimit from "../../features/CharsLimit";
+import Link from "next/link";
 
-export default function BlogCardWithoutImage({
+export default async function BlogCardWithoutImage({
   type,
   classname,
+  limit = 3,
 }: {
   type: string;
   classname?: string;
+  limit?: number;
 }) {
+  const data = await getSortedData();
+  const mostViewedPosts = data.mostViewedPosts;
   {
     return (
       <div className={classname}>
         <h1 className="text-4xl font-semibold">{type}</h1>
-        {[1, 2, 3, 4].map((item) => (
-          <div key={item} className="flex items-center gap-4 my-4">
-            <div className="text-5xl text-gray-400">{item}</div>
+        {mostViewedPosts.slice(0, limit).map((post, index) => (
+          <Link
+            key={index}
+            className="flex items-center gap-4 my-4"
+            href={post.id.toString()}
+          >
+            <div className="text-5xl text-gray-400">{index + 1}</div>
             <div>
-              <h3 className="text-2xl font-medium ">Post Title Lorem</h3>
-              <CharsLimit 
-                text="Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy
-                text ever since the 1500s, when an unknown printer took a galley
-                of type and scrambled it to make a type specimen book. It has
-                survived not only five centuries, but also the leap into
-                electronic typesetting, remaining essentially unchanged"
-                limit={60}
-                classname="text-sm"
-              />
+              <h3 className="text-2xl font-medium ">{post.title}</h3>
+              <CharsLimit text={post.body} limit={60} classname="text-sm" />
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     );
