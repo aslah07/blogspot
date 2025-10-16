@@ -46,12 +46,18 @@ export async function getSortedData(): Promise<SortedPostsResult> {
 }
 
 export async function getDatabyTagId(tag: string, limit: number = 10) {
-    const response = await fetch(`https://dummyjson.com/posts?limit=0`);
+    // fetch a sufficient number of posts (dummyjson has a limited dataset)
+    const response = await fetch(`https://dummyjson.com/posts?limit=260`);
     if (!response.ok) throw new Error("Failed to fetch post by Tags");
     const data: { posts: Post[] } = await response.json();
     const posts = data.posts;
-    const filteredTagsPost = posts.filter(p => p.tags.includes(tag.toLowerCase()));
-    const slicedFilteredTagsPost = filteredTagsPost.slice(0, limit);
-    return slicedFilteredTagsPost;
+
+    // normalize tag to string and lower-case for safer matching
+    const t = (tag || "").toString();
+
+    const filterTags = posts.filter(p => p.tags.map(s => s.toLowerCase()).includes(t.toLowerCase()));
+    const FilteredTagsPost = filterTags.slice(0, limit);
+    const allTags = [...new Set(posts.flatMap(post => post.tags))];
+    return { FilteredTagsPost, allTags };
 }
 
