@@ -7,12 +7,10 @@ import { getAllData, getSortedData } from "@/lib/getData";
 export default async function Home() {
   const data = await getAllData(0, 10);
   const sortedData = await getSortedData();
-  // console.log("Most liked data in Home page:", sortedData.mostLikedPosts);
   const postData = data.posts;
   const totalPage = data.totalPage;
   const mostViewedPosts = sortedData.mostViewedPosts;
   const mostLikedPosts = sortedData.mostLikedPosts;
-  // console.log("Data in Home page:", data);
 
   return (
     <div className="blog-container">

@@ -14,8 +14,6 @@ export default function TrendingPost({
   data?: any[];
 }) {
   function typeAction(typeAction: string, amount: number) {
-    // const dataSlice = data?.slice(0, amount);
-    // console.log("Data Slice:", dataSlice);
     if (typeAction === "boxed") {
       return data
         ?.slice(0, amount)

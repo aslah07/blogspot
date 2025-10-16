@@ -15,20 +15,20 @@ export default function FlatBlogCard({
       <Link href={`/blog/${data.id}`} className="block overflow-hidden">
         <div className="flex items-center h-full flex-row">
           {/* Image Section */}
-          <div className="h-48 w-full md:max-w-[320px] relative">
+          <div className="min-w-[160px] max-w-[160px] md:min-w-[320px] relative">
             <Image
               src={`https://picsum.photos/500/300/?random=${data.id}`}
               alt="Blog Post Image"
               width={400}
               height={300}
-              className="object-cover"
+              className="object-cover min-h-48 max-h-48 w-full"
               unoptimized
             />
           </div>
 
           {/* Content Section */}
-          <div className="my-auto p-4 space-y-2">
-            <h2 className="text-2xl font-bold">{data.title}</h2>
+          <div className="my-auto p-2 md:p-4 space-y-2">
+            <h2 className="text-lg md:text-2xl font-bold">{data.title}</h2>
             <CharsLimit limit={80} classname="text-sm" text={data.body} />
             <div className="space-y-1">
               <p className="text-sm text-gray-700">
