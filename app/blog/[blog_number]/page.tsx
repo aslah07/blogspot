@@ -31,7 +31,7 @@ export default async function Page({
               unoptimized
             />
           </div>
-          <div className="flex justify-between items-center">
+          <div className="sm:flex space-y-4 justify-between items-center">
             {/* Author */}
             <div className="flex gap-4">
               <Image
@@ -64,7 +64,7 @@ export default async function Page({
         {/* Blog Content Section */}
         <div className="">
           <div className="space-y-10 md:space-y-16">
-            <h1 className="text-5xl font-bold my-6">{data.title}</h1>
+            <h1 className="text-3xl sm:text-5xl font-bold my-6">{data.title}</h1>
             <div className=" space-y-8">
               <p>{data.body}</p>
               <p>
@@ -88,7 +88,7 @@ export default async function Page({
             </div>
             {/* Info box */}
             <div className="space-y-4  w-full md:w-3/4 mx-auto">
-              <h1 className="text-4xl font-bold">Alert Boxes</h1>
+              <h1 className="text-3xl sm:text-4xl font-bold">Alert Boxes</h1>
               <AlertBox
                 type="warning"
                 text="Warning ‼️"
@@ -115,7 +115,7 @@ export default async function Page({
               {/* Create list box with design */}
               {/* Unordered List */}
               <div>
-                <h2 className="text-4xl font-bold mb-4">Unordered List</h2>
+                <h2 className="text-3xl sm:text-4xl font-bold mb-4">Unordered List</h2>
                 <ul className="list-disc list-inside w-full md:w-1/2 lg:w-1/3">
                   <li className="my-3">First item in the list</li>
                   <li className="my-3">Second item in the list</li>
@@ -124,7 +124,7 @@ export default async function Page({
               </div>
               {/* Ordered List */}
               <div>
-                <h2 className="text-4xl font-bold mb-4">Ordered List</h2>
+                <h2 className="text-3xl sm:text-4xl font-bold mb-4">Ordered List</h2>
                 <ol className="list-decimal list-inside w-full md:w-2/3 lg:w-1/3">
                   <li className="my-3">First item in the list</li>
                   <li className="my-3">Second item in the list</li>
@@ -150,7 +150,7 @@ export default async function Page({
 
             {/* Quote Box */}
             <div className="md:w-2/3 mx-auto ">
-              <h2 className="text-4xl font-bold mb-4">Quote Box</h2>
+              <h2 className="text-3xl sm:text-4xl font-bold mb-4">Quote Box</h2>
               <blockquote className="border-l-4 border-gray-300 pl-4 italic text-gray-600">
                 "You can talk with someone for years, everyday, and still, it
                 won't mean as much as what you can have when you sit in front of
@@ -171,7 +171,7 @@ export default async function Page({
       </div>
 
       {/* Post Section */}
-      <div className="max-w-[360px] px-4 lg:pl-6 pr-0 py-10 space-y-10 lg:space-y-16">
+      <div className="max-w-[360px] px-4 lg:pl-6 lg:pr-0 py-10 space-y-10 lg:space-y-16">
         {/*  */}
         <BlogCardWithoutImage type="Related" />
         <BlogCardWithoutImage type="Most Viewed" />
