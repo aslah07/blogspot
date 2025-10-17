@@ -4,7 +4,11 @@ import { getDatabyTagId } from "@/lib/getData";
 import Link from "next/link";
 import React from "react";
 
-export default async function page({ params }: { params: { slug?: string[] } }) {
+export default async function page({
+  params,
+}: {
+  params: { slug?: string[] };
+}) {
   // `params` may be a Promise in Next; await it before using
   const awaitedParams = await params;
   const slugArray = awaitedParams.slug;
@@ -18,17 +22,20 @@ export default async function page({ params }: { params: { slug?: string[] } }) 
 
   if (slugLength === 0) {
     return (
-      <div>
-        {alltags &&
-          alltags.map((item, index) => (
-            <Link
-              key={index}
-              className="inline-block bg-gray-200 text-gray-800 text-xs px-2 m-2 py-1 rounded-full hover:bg-gray-300 transition"
-              href={`/tags/${item.toLowerCase()}`}
-            >
-              {item}
-            </Link>
-          ))}
+      <div className="px-4">
+        <h1 className="text-3xl sm:text-4xl font-bold px-4 m-4">All Tags</h1>
+        <div className="flex flex-wrap justify-between">
+          {alltags &&
+            alltags.map((item, index) => (
+              <Link
+                key={index}
+                className="inline-block bg-gray-200 text-gray-800 text-xs px-2 m-2 py-1 rounded-full hover:bg-gray-300 transition"
+                href={`/tags/${item.toLowerCase()}`}
+              >
+                {item}
+              </Link>
+            ))}
+        </div>
       </div>
     );
   }
@@ -52,7 +59,8 @@ export default async function page({ params }: { params: { slug?: string[] } }) 
 
         <div>
           <p>
-            Found <span className="font-bold">{filteredPosts.length}</span> posts for tag: {tag}.
+            Found <span className="font-bold">{filteredPosts.length}</span>{" "}
+            posts for tag: {tag}.
           </p>
         </div>
       </div>
