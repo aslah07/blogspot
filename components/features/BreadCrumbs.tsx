@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-export default function Breadcrumb() {
+export default function Breadcrumb({ className }: { className?: string }) {
   const pathname = usePathname();
 
   const segments = pathname
@@ -17,7 +17,7 @@ export default function Breadcrumb() {
     });
 
   return (
-    <nav className="flex items-center gap-2 text-sm mb-2">
+    <nav className={`flex items-center gap-2 text-sm ${className}`}>
       <Link href="/" className="text-blue-500 hover:underline">
         Home
       </Link>

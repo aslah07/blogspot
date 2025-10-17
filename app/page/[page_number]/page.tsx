@@ -4,6 +4,7 @@ import LatestPost from "@/components/PageComponents/Blog/LatestPost";
 import Breadcrumb from "@/components/features/BreadCrumbs";
 import FeaturedPost from "@/components/PageComponents/Blog/FeaturedPost";
 import PreNxtButton from "@/components/PreNxtButton";
+import "./page.css";
 
 export default async function Page({
   params,
@@ -18,10 +19,12 @@ export default async function Page({
   const mostLikedPosts = sortedData.mostLikedPosts;
 
   return (
-    <div className="blog-container">
-      <Breadcrumb />
+    <div className="">
+      <div>
+        <Breadcrumb className="m-4" />
+      </div>
 
-      <div className="lg:flex">
+      <div className="lg:flex blog-container">
         <LatestPost className="flex-1" data={postData} />
         <FeaturedPost
           data={mostLikedPosts}

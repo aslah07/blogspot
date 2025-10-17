@@ -19,7 +19,7 @@ export default async function Page({
     <div className="lg:flex px-4 lg:px-0">
       {/* Blog Content Section */}
       <div className="flex-1">
-        <Breadcrumb />
+        <Breadcrumb className="m-4"/>
         {/* Image, Author, tag Section */}
         <div>
           <div className="relative h-3/6 mx-auto my-8">
